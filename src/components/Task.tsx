@@ -48,11 +48,13 @@ export function Task() {
                 <div className={styles.taskList}>
                     <img src={clipLogo} />
                     <p>
-                        {tasks.map(task => {
+                        {/* {tasks.map(task => {
                             return ()
                         })}
+                         */}
+                        
                         {/* <strong>Você ainda não tem tarefas cadastradas </strong><br />
-                        Crie tarefas e organize seus itens a fazer */}
+                        Crie tarefas e organize seus itens a fazer  */}
                     </p>
                 </div>
             </div>

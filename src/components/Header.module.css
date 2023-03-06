@@ -1,13 +1,6 @@
-header {
+.header {
+    display: flex;
+    justify-content: center;
+    padding: 4.5em 0 5em 0;
     background-color: var(--gray-700);
-    display: flex;
-    justify-content: center;
-    padding: 2rem 0;
-    height: 12.5rem;
-}
-
-header img {
-    height: 5rem;
-    display: flex;
-    justify-content: center;
 }
