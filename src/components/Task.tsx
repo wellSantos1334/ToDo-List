@@ -1,63 +1,59 @@
-import styles from './Task.module.css';
-import clipLogo from '../assets/Clipboard.png';
-import { ChangeEvent, FormEvent, useState } from 'react';
+import styles from "./Task.module.css";
+import { ChangeEvent, FormEvent, useState } from "react";
+import { PlusCircle } from "phosphor-react";
 
-interface ITask {
-    content: string;
+export interface ITask {
+  id: number;
+  content: string;
+  isComplete: boolean;
 }
 
+interface ITaskFormProps {
+  tasks: ITask[];
+  setTasks: React.Dispatch<React.SetStateAction<ITask[]>>;
+}
 
-export function Task() {
+export function Task({ tasks, setTasks }: ITaskFormProps) {
+  const userTasks = {
+    id: 1,
+    content: "Beber água",
+    isComplete: false,
+  };
 
-    const [tasks, setTasks] = useState([
-        '',
+  const [newTask, setNewTask] = useState("");
+
+  function handleCreateNewTask(event: FormEvent) {
+    event.preventDefault();
+
+    setTasks([
+      {
+        id: userTasks.id,
+        content: userTasks.content,
+        isComplete: userTasks.isComplete,
+      },
+      ...tasks,
     ]);
+    console.log(setTasks);
+    setNewTask("");
+  }
 
-    const [newTask, setNewTask] = useState('')
+  function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
+    event.target.setCustomValidity("");
+    setNewTask(event.target.value);
+  }
 
-    function handleCreateNewTask(event: FormEvent) {
-        event.preventDefault();
-
-        setTasks([...tasks, newTask]);
-        console.log(tasks);
-        // setNewTask('');
-    }
-
-    function handleNewTaskChange(event: ChangeEvent<HTMLTextAreaElement>) {
-        event.target.setCustomValidity('')
-        setNewTask(event.target.value)
-    }
-
-    return (
-        <div className={styles.main}>
-            <form className={styles.taskForm} onSubmit={handleCreateNewTask} >
-                <textarea
-                    name='task'
-                    placeholder='Adicione uma tarefa'
-                    className={styles.textarea}
-                    onChange={handleNewTaskChange}
-                >
-                </textarea>
-                <button type="submit">Criar</button>
-            </form>
-            <div className={styles.taskMain}>
-                <div className={styles.taskHeader}>
-                    <strong className={styles.createdTask}>Tarefas criadas<p>0</p></strong>
-                    <strong className={styles.doneTask}>Concluídas<p>0</p></strong>
-                </div>
-                <div className={styles.taskList}>
-                    <img src={clipLogo} />
-                    <p>
-                        {/* {tasks.map(task => {
-                            return ()
-                        })}
-                         */}
-                        
-                        {/* <strong>Você ainda não tem tarefas cadastradas </strong><br />
-                        Crie tarefas e organize seus itens a fazer  */}
-                    </p>
-                </div>
-            </div>
-        </div>
-    );
+  return (
+    <form onSubmit={handleCreateNewTask} className={styles.form}>
+      <input
+        type="text"
+        placeholder="Adicione uma nova tarefa"
+        value={newTask}
+        onChange={handleNewTaskChange}
+        required
+      />
+      <button type="submit" title="Criar nova tarefa">
+        Criar <PlusCircle />
+      </button>
+    </form>
+  );
 }
