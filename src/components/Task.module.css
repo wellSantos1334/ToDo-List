@@ -1,0 +1,125 @@
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
+.taskForm {
+    width: 100%;
+    margin-top: -1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.taskForm textarea {
+    width: 100%;
+    background-color: var(--gray-500);
+    border: 0;
+    resize: none;
+    height: 6rem;
+    padding: 1rem;
+    border-radius: 8px;
+    color: var(--gray-300);
+    line-height: 1;
+    width: 40rem;
+    height: 3.25rem;
+    text-align: center;
+    font-size: 16px;
+}
+
+.taskForm textarea:hover {
+    color: var(--white);
+}
+
+.taskForm button {
+    background-color: var(--blueDark);
+    color: var(--gray-100);
+    width: 5.625rem;
+    height: 3.25rem;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-left: 0.4rem;
+    border-style: none;
+    cursor: pointer;
+}
+
+.taskForm button:hover {
+    background-color: var(--blue);
+}
+
+.taskMain {
+    width: 46rem;
+    height: 18rem;
+    margin: 2rem auto;
+    /* background-color: var(--gray-400); */
+    /* background-color: green; */
+
+}
+
+.taskHeader {
+    height: 4rem;
+}
+
+.createdTask {
+    width: 8.6875rem;
+    height: 1.1875rem;
+    color: var(--blue);
+    display: flex;
+    flex-direction: row;
+}
+
+.doneTask {
+    width: 8.6875rem;
+    height: 1.1875rem;
+    color: var(--blue);
+    display: flex;
+    margin: -1rem 40rem;
+}
+
+.createdTask p {
+    width: 1.5625rem;
+    height: 1.1875rem;
+    padding: 0.125rem 0.5rem 0.125rem 0.5rem;
+    background-color: var(--gray-400);
+    color: var(--gray-200);
+    border-radius: 999px;
+    font-size: 14px;
+    margin-left: 0.3rem;
+}
+
+.doneTask p {
+    width: 1.5625rem;
+    height: 1.1875rem;
+    padding: 0.125rem 0.5rem 0.125rem 0.5rem;
+    background-color: var(--gray-400);
+    color: var(--gray-200);
+    border-radius: 999px;
+    font-size: 14px;
+    margin-left: 0.3rem;
+}
+
+.taskList {
+    /* background-color: blue; */
+    align-self: flex-end;
+    /* background-color: var(--gray-400); */
+    color: var(--gray-300);
+    border-top: 1px solid var(--gray-400);
+    width: 46rem;
+    height: 13.50rem;
+    padding-left: 1.5rem;
+}
+
+.taskList p {
+    width: 43rem;
+    height: 2.75rem;
+    color: var(--gray-300);
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 20px;
+}
+
+.taskList img {
+    width: 3.5rem;
+    height: 3.5rem;
+    margin-left: 20rem;
+    margin-top: 2rem;
+}
