@@ -14,26 +14,21 @@ interface ITaskFormProps {
 }
 
 export function Task({ tasks, setTasks }: ITaskFormProps) {
-  const userTasks = {
-    id: 1,
-    content: "Beber água",
-    isComplete: false,
-  };
 
   const [newTask, setNewTask] = useState("");
 
   function handleCreateNewTask(event: FormEvent) {
     event.preventDefault();
-
+    var randomID = Math.floor(Math.random() * 99999999999999);
+    console.log('Random ID: ' + randomID)
     setTasks([
       {
-        id: userTasks.id,
-        content: userTasks.content,
-        isComplete: userTasks.isComplete,
+        id: randomID,
+        content: newTask,
+        isComplete: false,
       },
       ...tasks,
     ]);
-    console.log(setTasks);
     setNewTask("");
   }
 
